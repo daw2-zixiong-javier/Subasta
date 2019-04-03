@@ -1,0 +1,21 @@
+page-product {
+    display: inline-flexbox;
+    img{
+        margin: 0;
+        padding: 0;
+        width: 48%;
+        float: left;
+    }
+   #data{
+        margin: 0;
+        padding: 0;
+        width: 48%;
+        float: right;
+        button{
+            width: 100%;
+            height: 50px;
+        }
+    }
+
+
+}

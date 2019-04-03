@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <nav-bar></nav-bar>
+    </ion-navbar>
+  </ion-header>
+  
+    <!--    <button ion-button><ion-icon name="log-out" (click)="logout()"></ion-icon></button>-->
+
+
+<ion-content padding>
+  <ion-title>Home</ion-title>
+
+  <h2>Welcome to Ionic!</h2>
+  <p>
+    This starter project comes with simple tabs-based layout for apps
+    that are going to primarily use a Tabbed UI.
+  </p>
+  <p>
+    Take a look at the <code>src/pages/</code> directory to add or change tabs,
+    update any existing page or create new pages.
+  </p>
+  
+  <ion-list>
+    <ion-row justify-content-center responsive-sm>
+      
+        <div *ngFor="let item of products" col-sm col2>
+
+          <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="">
+          <ion-card text-center>
+            <ion-label>
+              {{item?.name}}
+            </ion-label>
+            <ion-label>
+              {{item?.description}}
+            </ion-label>
+            <div>
+              {{item|json}}
+            </div>
+            <timer #timer timeInSeconds={{item.time_live}} id={{item.key}} timeDisplay={{item.time_display}}></timer>
+            <button ion-button (click)="goProduct(item)">
+                Pujar
+            </button>
+          </ion-card>
+ 
+        </div>
+    </ion-row>
+    
+  </ion-list>
+  
+</ion-content>

@@ -1,0 +1,14 @@
+nav-bar {
+    ion-list{
+        margin: 10%;
+    }
+    ion-item{
+        
+        &:nth-child(even){
+            background: #cfcfcf;
+        }
+        &:hover{
+            background: #8a8989;
+        }
+    }
+}
