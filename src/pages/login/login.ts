@@ -46,10 +46,10 @@ login() {
     this.navCtrl.push(RegisterPage);
   }
 
-  loginWithGoogle() {/*
+  loginWithGoogle() {
     this.auth.signInWithGoogle()
       .then(
       () => this.navCtrl.setRoot(HomePage),
-    );*/
+    );
   } 
 }

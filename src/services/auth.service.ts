@@ -3,27 +3,47 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import AuthProvider = firebase.auth.AuthProvider;
+import {IUser} from '../provider/user';
+import {Storage} from '@ionic/storage';
 
 @Injectable()
 export class AuthService {
-	private user: firebase.User;
-
-	constructor(public afAuth: AngularFireAuth) {
+	user:IUser = {
+		email:""
+	};
+	constructor(public afAuth: AngularFireAuth,
+		private storage:Storage
+		) {
 		afAuth.authState.subscribe(user => {
-			this.user = user;
+			this.storage.get('user').then( (user)=>{
+				/*this.user = user.toJSON()*/;
+				console.log(this.user);
+			})
+
 		});
 	}
 
 	signInWithEmail(credentials) {
 		console.log('Sign in with email');
 		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email,
-			 credentials.password);
+			 credentials.password).then(
+				 ()=> 	
+				 {
+						 return this.afAuth.authState.subscribe(user => {
+							 this.storage.set('user',JSON.stringify(user));
+							 this.user = credentials;
+							 console.log(this.user);
+						 });
+					 }
+			 );
 	}
+
 	signUp(credentials) {
 		return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
 	}
-	authenticated(): boolean {
-		return this.user !== null;
+	authenticated() {
+		return this.storage.get('user').then( credentials =>
+			JSON.parse(credentials));
 	}
 	getEmail() {
 		return this.user && this.user.email;
@@ -31,8 +51,8 @@ export class AuthService {
 	signOut() {
 		console.log(this.user);
 		this.user= null;
-		console.log("me voy");
-		return this.afAuth.auth.signOut();
+		this.storage.remove('user');
+		//return this.afAuth.auth.signOut();
 	}
 	signInWithGoogle() {
 		console.log('Sign in with google');

@@ -20,11 +20,12 @@ import {AuthService} from "../services/auth.service";
 import { firebaseConfig } from '../environment/environment';
 import { HomePage } from '../pages/home/home';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-
 import {TimerComponent} from "../components/timer/timer"
 import { ProductPage } from '../pages/product/product';
 import {Events} from "ionic-angular"
 import { NavBarComponent } from '../components/nav-bar/nav-bar';
+import { IonicStorageModule} from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -42,6 +43,7 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
+    IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
@@ -55,7 +57,7 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar';
     HomePage,
     TimerComponent,
     NavBarComponent,
-    ProductPage
+    ProductPage,
   ],
   providers: [
     StatusBar,
@@ -64,6 +66,7 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar';
     AuthService,
     DbService,
     Events,
+    Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

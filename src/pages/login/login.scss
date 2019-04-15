@@ -1,3 +1,15 @@
 page-login {
-
+    form{
+        #credentials{
+            width: 49%;
+        }
+        #socials{
+            width: 49%;
+            button{
+                margin: 5%;
+                display: block;
+                vertical-align: middle;
+            }
+        }
+    }
 }

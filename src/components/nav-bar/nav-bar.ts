@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, Events } from 'ionic-angular';
 import { DbService } from '../../services/db.service';
 import { ProductPage } from '../../pages/product/product';
+import { AuthService } from '../../services/auth.service';
+import { LoginPage } from '../../pages/login/login';
 
 /**
  * Generated class for the NavBarComponent component.
@@ -27,7 +29,8 @@ export class NavBarComponent {
               public navParams: NavParams,
               public fDB:DbService,
               public loadingCtrl:LoadingController,
-              public events:Events
+              public events:Events,
+              public authService:AuthService
   ) {
     //this.itemsConst=this.items;
     let loading = loadingCtrl.create({
@@ -38,7 +41,7 @@ export class NavBarComponent {
       ()=>{
         this.fDB.getStock().subscribe(data => this.searchItemsConst=data);
         loading.dismiss();
-
+        
       });
   }
 
@@ -65,8 +68,12 @@ export class NavBarComponent {
 
   setSearchMode(){
     this.searchMode=!this.searchMode;
+    this.searchItems=[];
   }
-
+  logout(){
+    this.navCtrl.setRoot(LoginPage);
+    this.authService.signOut();
+  }
   goProduct(item){
     this.events.subscribe(item.key+':remaining',
       (secondsRemaining)=>{

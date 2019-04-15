@@ -20,11 +20,11 @@
     update any existing page or create new pages.
   </p>
   
-  <ion-list>
+  <ion-list id="list">
     <ion-row justify-content-center responsive-sm>
       
-        <div *ngFor="let item of products" col-sm col2>
-
+        <div *ngFor="let item of products" class="product">
+          
           <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="">
           <ion-card text-center>
             <ion-label>
@@ -33,9 +33,6 @@
             <ion-label>
               {{item?.description}}
             </ion-label>
-            <div>
-              {{item|json}}
-            </div>
             <timer #timer timeInSeconds={{item.time_live}} id={{item.key}} timeDisplay={{item.time_display}}></timer>
             <button ion-button (click)="goProduct(item)">
                 Pujar
@@ -46,5 +43,4 @@
     </ion-row>
     
   </ion-list>
-  
 </ion-content>
