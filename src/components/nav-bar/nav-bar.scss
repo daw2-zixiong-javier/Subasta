@@ -4,11 +4,30 @@ nav-bar {
     }
     ion-item{
         
+
         &:nth-child(even){
             background: #cfcfcf;
         }
         &:hover{
             background: #8a8989;
         }
+        span{
+            position: absolute;
+            left: -9999px;
+        }
+        &:hover span{
+            left: 500px;
+            top: 0;
+            text-align: center;
+            img{
+                width: 100px;
+                height: 100%;
+            }
+        }
+        .large-image{
+            border-radius: 4px;
+            box-shadow: 1px 1px 3px 3px rgba(127, 127, 127, 0.15);;
+        }
+
     }
 }

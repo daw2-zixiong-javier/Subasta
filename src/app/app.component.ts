@@ -7,13 +7,14 @@ import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/auth.service';
 import { HomePage } from '../pages/home/home';
 import {IUser} from '../provider/user';
+import { TabsPage} from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   user:IUser;
-  rootPage:any;
+  rootPage:any =HomePage /*= TabsPage*/;
 
   constructor(platform: Platform, 
     statusBar: StatusBar, 
@@ -35,8 +36,6 @@ export class MyApp {
           this.user = userData;
           if(this.user ==undefined){
             this.rootPage=LoginPage;
-          }else{
-            this.rootPage=HomePage;
           }
         }
       )

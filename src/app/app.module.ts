@@ -37,7 +37,7 @@ import { IonicStorageModule} from '@ionic/storage';
     HomePage,
     TimerComponent,
     ProductPage,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

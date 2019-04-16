@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, Events } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, Events, ModalController } from 'ionic-angular';
 import { DbService } from '../../services/db.service';
 import { ProductPage } from '../../pages/product/product';
 import { AuthService } from '../../services/auth.service';
 import { LoginPage } from '../../pages/login/login';
-
 /**
  * Generated class for the NavBarComponent component.
  *
@@ -30,7 +29,8 @@ export class NavBarComponent {
               public fDB:DbService,
               public loadingCtrl:LoadingController,
               public events:Events,
-              public authService:AuthService
+              public authService:AuthService,
+              public modalCtrl: ModalController,
   ) {
     //this.itemsConst=this.items;
     let loading = loadingCtrl.create({
@@ -85,4 +85,5 @@ export class NavBarComponent {
         this.events.unsubscribe(item.key+':remaining');
       });
   }
+
 }

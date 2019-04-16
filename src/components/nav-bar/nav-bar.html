@@ -19,7 +19,7 @@
         >
         </ion-searchbar>
     </ion-col>
-    <button ion-button item-right (click)="setSearchMode()">
+    <button ion-button item-right (click)="setSearchMode()" >
       X
     </button>
   
@@ -30,6 +30,9 @@
 <ion-list *ngIf="list">
   <ion-item *ngFor="let item of searchItems" (click)=goProduct(item)>
     {{ item.name }}
+    <span clas="large">
+      <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" class="large-image" alt="">
+    </span>
   </ion-item>
 </ion-list>
   

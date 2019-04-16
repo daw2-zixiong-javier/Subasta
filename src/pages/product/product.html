@@ -23,8 +23,17 @@
               {{product.description}}
             </ion-card-content>
           </ion-card>
-  
           </ion-col>
+          <ion-item>
+            <ion-label>Price</ion-label>
+            <ion-select [(ngModel)]="add_price">
+              <ion-option value=5 selected>5</ion-option>
+              <ion-option value=10>10</ion-option>
+              <ion-option value=15>15</ion-option>
+              <ion-option value=20>20</ion-option>
+              <ion-option value=25>25</ion-option>
+            </ion-select>
+          </ion-item>
           <ion-col text-center>
             <button ion-button (click)="setPrice()" >
               <ion-icon name="cash"></ion-icon>

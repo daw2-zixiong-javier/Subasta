@@ -49,7 +49,7 @@ login() {
   loginWithGoogle() {
     this.auth.signInWithGoogle()
       .then(
-      () => this.navCtrl.setRoot(HomePage),
+      () => this.navCtrl.setRoot(HomePage)
     );
   } 
 }
