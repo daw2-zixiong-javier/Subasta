@@ -6,6 +6,7 @@ import {DbService} from '../../services/db.service';
 import {TimerComponent} from "../../components/timer/timer";
 import { ProductPage } from '../product/product';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -62,5 +63,9 @@ export class HomePage {
         this.events.unsubscribe(item.key+':remaining');
 
       });
+  }
+
+  prueba() {
+    console.log("mensaje de prueba");
   }
 }

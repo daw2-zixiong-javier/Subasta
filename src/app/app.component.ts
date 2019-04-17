@@ -13,7 +13,7 @@ import { HomePage } from '../pages/home/home';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = TabsPage;
 
   constructor(platform: Platform, 
     statusBar: StatusBar, 
@@ -29,6 +29,7 @@ export class MyApp {
   }
 
 
+
   login() {
     this.auth.signOut();
     this.rootPage = HomePage;
@@ -38,5 +39,12 @@ export class MyApp {
     this.auth.signOut();
     this.rootPage = LoginPage;
   }
-  
+
+  funcionUno() {
+    console.log("boton 1");
+  }
+
+  funcionDos() {
+    console.log("boton 2");
+  }
 }
