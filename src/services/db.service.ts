@@ -3,18 +3,25 @@ import {AngularFireDatabase,AngularFireList} from "@angular/fire/database";
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { AngularFireAuth } from 'angularfire2/auth';
-
 //import * as firebase from "firebase";
-
+import {Storage} from '@ionic/storage';
 @Injectable()
 export class DbService{
 
-    currentdataUserData: any;
     private itemsRef: AngularFireList<any>;
     constructor(private fDB:AngularFireDatabase,
-        private fAuth:AngularFireAuth){
+        private fAuth:AngularFireAuth,
+        private storage:Storage 
+        ){
         this.fAuth.authState.subscribe(
-            (data)=>console.log("logged in", data),
+            (data)=>{
+              if(data != undefined){
+                /*this.storage.set("user",data.toJSON().toString()).then(
+                  ()=>{
+                    console.log("Se han guardado las credenciales");
+                  }
+                )*/}
+            },
             (error)=> console.log("error logging",error),
             ()=>console.log("auth complete")
           );

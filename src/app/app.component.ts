@@ -1,29 +1,48 @@
 import { Component } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-
 import { AuthService } from '../services/auth.service';
 import { HomePage } from '../pages/home/home';
+import {IUser} from '../provider/user';
+import { TabsPage} from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+<<<<<<< HEAD
   rootPage:any = TabsPage;
+=======
+  user:IUser;
+  rootPage:any =HomePage /*= TabsPage*/;
+>>>>>>> master
 
   constructor(platform: Platform, 
     statusBar: StatusBar, 
     splashScreen: SplashScreen,
-    private auth:AuthService){
+    private auth:AuthService,
+    ){
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      /*this.storage.get('user').then( 
+        (credentails) =>{
+          console.log(JSON.stringify(credentails));
+      });*/
+      this.auth.authenticated().then(
+        (userData)=>{
+          this.user = userData;
+          if(this.user ==undefined){
+            this.rootPage=LoginPage;
+          }
+        }
+      )
     });
     
   }
@@ -31,9 +50,9 @@ export class MyApp {
 
 
   login() {
-    this.auth.signOut();
     this.rootPage = HomePage;
   }
+<<<<<<< HEAD
 
   logout() {
     this.auth.signOut();
@@ -47,4 +66,7 @@ export class MyApp {
   funcionDos() {
     console.log("boton 2");
   }
+=======
+  
+>>>>>>> master
 }

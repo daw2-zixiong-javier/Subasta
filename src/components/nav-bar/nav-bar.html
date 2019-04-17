@@ -1,6 +1,10 @@
 <ion-navbar>
+
   <ion-row *ngIf="searchMode" align-items-center color="primary">
-    <ion-title>Subasta</ion-title> 
+      <button ion-button left (click)="logout()">
+          <ion-icon name="log-out"></ion-icon>  
+      </button>
+    <ion-title center>Subasta</ion-title> 
     <button (click)="setSearchMode()" ion-button>
         <ion-icon name="search"></ion-icon>
     </button>
@@ -15,7 +19,7 @@
         >
         </ion-searchbar>
     </ion-col>
-    <button ion-button item-right (click)="setSearchMode()">
+    <button ion-button item-right (click)="setSearchMode()" >
       X
     </button>
   
@@ -26,6 +30,9 @@
 <ion-list *ngIf="list">
   <ion-item *ngFor="let item of searchItems" (click)=goProduct(item)>
     {{ item.name }}
+    <span clas="large">
+      <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" class="large-image" alt="">
+    </span>
   </ion-item>
 </ion-list>
   

@@ -41,16 +41,9 @@ export class HomePage {
         );
         
       loader.dismiss();
-
     });
   }
 
-  logout(){
-    this.auth.signOut().then(
-      () => this.navCtrl.setRoot(LoginPage),
-      (error)=> console.log(error)
-    );
-  }
   goProduct(item){
     console.log(item);
     this.events.subscribe(item.key+':remaining',

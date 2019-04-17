@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, ToastController } from 'ionic-angular';
 import {DbService} from '../../services/db.service';
 
 /**
@@ -17,11 +17,18 @@ import {DbService} from '../../services/db.service';
 
 export class ProductPage {
   private product: any;
+  private add_price:string = "5";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public fDB:DbService,
-              public events:Events) {
+              public events:Events,
+              public toastCtrl:ToastController) {
     this.product=navParams.data;
+/*    let toast = this.toastCtrl.create({
+      message: 'Felicidades, has conseguido el '+this.product.name+' por '+ this.product.current_price,
+      duration: 3000,
+      position:'top'
+    });*/
     this.events.subscribe(this.product.id+':remaining', (timeRemaining) => {
       this.product.time_display=timeRemaining;
       console.log(this.product);
@@ -34,7 +41,7 @@ export class ProductPage {
     console.log(this.product);
   }
   setPrice(){
-    this.product.current_price+=10;
+    this.product.current_price = this.product.current_price+parseInt(this.add_price);
     this.fDB.uploadItem(this.product);
   }
   
