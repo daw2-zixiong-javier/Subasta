@@ -1,11 +1,31 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      About
+    <ion-title text-center color="primary">
+      About Us
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+<p>Siguenos en las redes sociales:</p>
+  <button id="facebook" ion-button><ion-icon name="logo-facebook"></ion-icon></button>
+  <button ion-button><ion-icon name="logo-twitter"></ion-icon></button>
+  <button id="GPlus" ion-button><ion-icon name="logo-googleplus"></ion-icon></button>
+  <p>O ponte en contacto con nosotros:</p>
 
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea name="description"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" block>Submit</button>
+  </form>
 </ion-content>

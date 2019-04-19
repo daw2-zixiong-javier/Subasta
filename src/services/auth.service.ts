@@ -8,9 +8,7 @@ import {Storage} from '@ionic/storage';
 
 @Injectable()
 export class AuthService {
-	user:IUser = {
-		email:""
-	};
+	user:IUser;
 	constructor(public afAuth: AngularFireAuth,
 		private storage:Storage
 		) {

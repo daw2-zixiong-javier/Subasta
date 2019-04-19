@@ -13,12 +13,11 @@ import { TabsPage} from '../pages/tabs/tabs';
   templateUrl: 'app.html'
 })
 export class MyApp {
-<<<<<<< HEAD
+
   rootPage:any = TabsPage;
-=======
+
   user:IUser;
-  rootPage:any =HomePage /*= TabsPage*/;
->>>>>>> master
+
 
   constructor(platform: Platform, 
     statusBar: StatusBar, 
@@ -52,21 +51,11 @@ export class MyApp {
   login() {
     this.rootPage = HomePage;
   }
-<<<<<<< HEAD
+
 
   logout() {
     this.auth.signOut();
     this.rootPage = LoginPage;
   }
 
-  funcionUno() {
-    console.log("boton 1");
-  }
-
-  funcionDos() {
-    console.log("boton 2");
-  }
-=======
-  
->>>>>>> master
 }

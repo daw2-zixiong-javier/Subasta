@@ -47,9 +47,9 @@ login() {
   }
 
   loginWithGoogle() {
-    this.auth.signInWithGoogle()
+    /*this.auth.signInWithGoogle()
       .then(
       () => this.navCtrl.setRoot(HomePage)
-    );
+    );*/
   } 
 }

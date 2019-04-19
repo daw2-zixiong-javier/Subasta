@@ -25,6 +25,7 @@ import { ProductPage } from '../pages/product/product';
 import {Events} from "ionic-angular"
 import { NavBarComponent } from '../components/nav-bar/nav-bar';
 import { IonicStorageModule} from '@ionic/storage';
+import {MyProfilePage} from "../pages/my-profile/my-profile";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { IonicStorageModule} from '@ionic/storage';
     TimerComponent,
     ProductPage,
     NavBarComponent,
+    MyProfilePage,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import { IonicStorageModule} from '@ionic/storage';
     TimerComponent,
     NavBarComponent,
     ProductPage,
+    MyProfilePage,
   ],
   providers: [
     StatusBar,
