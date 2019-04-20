@@ -4,7 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { LoginPage } from '../pages/login/login';
@@ -26,12 +25,12 @@ import {Events} from "ionic-angular"
 import { NavBarComponent } from '../components/nav-bar/nav-bar';
 import { IonicStorageModule} from '@ionic/storage';
 import {MyProfilePage} from "../pages/my-profile/my-profile";
+import { PopMessagesComponent } from '../components/pop-messages/pop-messages';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
     TabsPage,
     LoginPage,
     RegisterPage,
@@ -40,6 +39,7 @@ import {MyProfilePage} from "../pages/my-profile/my-profile";
     ProductPage,
     NavBarComponent,
     MyProfilePage,
+    PopMessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,6 @@ import {MyProfilePage} from "../pages/my-profile/my-profile";
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
     TabsPage,
     LoginPage,
     RegisterPage,
@@ -61,6 +60,7 @@ import {MyProfilePage} from "../pages/my-profile/my-profile";
     NavBarComponent,
     ProductPage,
     MyProfilePage,
+    PopMessagesComponent
   ],
   providers: [
     StatusBar,

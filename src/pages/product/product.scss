@@ -1,16 +1,21 @@
 page-product {
-    display: inline-flexbox;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template: "image image data data" "image image data data" "timer timer timer timer";
     img{
         margin: 0;
         padding: 0;
         width: 48%;
         float: left;
+        grid-area: "image";
     }
-   #data{
+    #data{
         margin: 0;
         padding: 0;
         width: 48%;
         float: right;
+        grid-area: "data";
         ion-card{
             font-size: 1em;
         }
@@ -19,6 +24,22 @@ page-product {
             height: 50px;
         }
     }
-
-
+    timer{
+        grid-area: "timer timer"
+    }
 }
+@media screen and (max-width: 1024px) {
+    page-product{
+        display: grid;
+        grid-template: "image" "timer" "data";
+        img{
+            grid-area: "image";
+        }
+        timer{
+            grid-area: "timer";
+        }
+        #data{
+            grid-area: "data";
+        }
+    }
+  }

@@ -1,13 +1,16 @@
-<ion-navbar>
+<ion-navbar color="primary">
 
   <ion-row *ngIf="searchMode" align-items-center color="primary">
-      <button ion-button left (click)="logout()">
-          <ion-icon name="log-out"></ion-icon>  
-      </button>
     <ion-title center>Subasta</ion-title> 
     <button (click)="setSearchMode()" ion-button>
         <ion-icon name="search"></ion-icon>
     </button>
+    <button (click)="popmsg()" ion-button>
+      Mensajes
+    </button>
+    <button ion-button left (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>  
+  </button>
   </ion-row>
   
   <ion-row *ngIf="!searchMode" color="primary">

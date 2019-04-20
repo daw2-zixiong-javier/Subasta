@@ -1,44 +1,61 @@
 page-home {
-  #list{
 
+  ion-slides{
+    width: 100%;
+    height: 30em;
+  }
+
+  ion-list{
+    ion-row{
+      display: grid;
+      grid-template: 
+        "main main main main";
+      padding-left: 2%;
+      div.product {
+        margin: 0.5em;
+        padding: 0.5em;
+        border: solid 1px #cccccc;
+        border-radius: 5px;
+        grid-area: 'main';
+        width: 23%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  page-home{
+    ion-list{
       ion-row{
         display: grid;
-        grid-template-areas:
-          'main main main main';
-        width: 85%;
-        margin: 7%;
-        @media (max-width: 900px) {
-          grid-template-areas:
-          'main main main';
-          width: 90%;
-          margin: 4%;
-
-        }
-        @media (max-width: 600px) {
-          grid-template-areas:
-          'main main';
-          width: 95%;
-          margin: 2%;
-
-        }
-        @media (max-width: 350px) {
-          grid-template-areas:
-          'main';
-          width: 99%;
-          margin:1%;
-
-        }
-
-
-      }
-      .product{
-        grid-area: 'main';
-        margin: 1%;
-        img{
-          width: 100%;
-          height: 200px;
+        grid-template: 
+          "main main main";
+        padding-left: 1%;
+        div.product {
+          margin: 0.1em;
+          padding: 0.1em;
+          border: solid 1px #cccccc;
+          border-radius: 5px;
+          grid-area: 'main';
+          width: 32%;
         }
       }
+    }
   }
-  
+}
+@media screen and (max-width: 760px) {
+  page-home{
+    ion-list{
+      ion-row{
+        display: grid;
+        grid-template: 
+          "main main";
+        padding-left: 1%;
+        div.product {
+          grid-area: 'main';
+          width: 47%;
+        }
+      }
+    }
+  }
 }

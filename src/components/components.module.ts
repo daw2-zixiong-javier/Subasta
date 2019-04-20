@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { TimerComponent } from './timer/timer';
 import { NavBarComponent } from './nav-bar/nav-bar';
+import { PopMessagesComponent } from './pop-messages/pop-messages';
 @NgModule({
 	declarations: [TimerComponent,
-    NavBarComponent],
+    NavBarComponent,
+    PopMessagesComponent],
 	imports: [],
 	exports: [TimerComponent,
-    NavBarComponent]
+    NavBarComponent,
+    PopMessagesComponent]
 })
 export class ComponentsModule {}

@@ -12,7 +12,7 @@
   <ion-content padding>
     <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg">
     <div id="data" >
-        <timer #timer timeInSeconds={{product.time_live}} id="{{product.id}}" timeDisplay={{product.time_display}}></timer>
+        
         <ion-col text-center>
           <ion-card>
             <ion-card-header>
@@ -40,5 +40,5 @@
             </button>
           </ion-col>
     </div>
-
+    <timer #timer timeInSeconds={{product.time_live}} id="{{product.id}}" timeDisplay={{product.time_display}}></timer>
   </ion-content>

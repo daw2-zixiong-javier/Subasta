@@ -43,6 +43,7 @@ export class ProductPage {
   setPrice(){
     this.product.current_price = this.product.current_price+parseInt(this.add_price);
     this.fDB.uploadItem(this.product);
+
   }
   
 }

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, Events, ModalController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, Events, ModalController, PopoverController } from 'ionic-angular';
 import { DbService } from '../../services/db.service';
 import { ProductPage } from '../../pages/product/product';
 import { AuthService } from '../../services/auth.service';
 import { LoginPage } from '../../pages/login/login';
+import {PopMessagesComponent} from '../pop-messages/pop-messages';
 /**
  * Generated class for the NavBarComponent component.
  *
@@ -19,8 +20,6 @@ export class NavBarComponent {
   searchItems:any[];
   searchItemsConst: any[]
   searchQuery: string = '';
-  //items: string[] = ['hola','cosa','hola2'];
-  //itemsConst:string[];
   list:boolean=false;
   searchMode:boolean=true;
   
@@ -31,6 +30,7 @@ export class NavBarComponent {
               public events:Events,
               public authService:AuthService,
               public modalCtrl: ModalController,
+              public popCtrl: PopoverController
   ) {
     //this.itemsConst=this.items;
     let loading = loadingCtrl.create({
@@ -84,6 +84,11 @@ export class NavBarComponent {
         this.navCtrl.push(ProductPage, item);
         this.events.unsubscribe(item.key+':remaining');
       });
+  }
+
+  popmsg(){
+    let pop = this.popCtrl.create(PopMessagesComponent);
+    pop.present();
   }
 
 }

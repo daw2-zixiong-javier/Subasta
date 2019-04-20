@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 import { AngularFireAuth } from 'angularfire2/auth';
 //import * as firebase from "firebase";
 import {Storage} from '@ionic/storage';
+import { m } from '@angular/core/src/render3';
 @Injectable()
 export class DbService{
 
@@ -43,8 +44,19 @@ export class DbService{
     
         );
     }
+    getMessages():Observable<any>{
+      return this.fDB.list('messages_table/', message => message.orderByChild('to').equalTo('test@test.com')).snapshotChanges().pipe(
+        map(changes=> changes.map(
+          (c)=> {return{
+            key: c.payload.key,
+            from:c.payload.val()['from'],
+            nombre:c.payload.val()['nombre'],
+            precio:c.payload.val()['precio'],            
+          }}
+        ))
+      )
+    }
     getItem(item){
-      console.log("---------------------------");
       return this.fDB.object(`product_table/${item.key}`).snapshotChanges().pipe(
         map(changes =>{ return {
             key: changes.payload.key,
