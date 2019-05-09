@@ -1,4 +1,6 @@
+
 page-product {
+  /**
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -10,20 +12,7 @@ page-product {
         float: left;
         grid-area: "image";
     }
-    #data{
-        margin: 0;
-        padding: 0;
-        width: 48%;
-        float: right;
-        grid-area: "data";
-        ion-card{
-            font-size: 1em;
-        }
-        button{
-            width: 100%;
-            height: 50px;
-        }
-    }
+
     timer{
         grid-area: "timer timer"
     }
@@ -42,4 +31,6 @@ page-product {
             grid-area: "data";
         }
     }
-  }
+    */
+
+}
