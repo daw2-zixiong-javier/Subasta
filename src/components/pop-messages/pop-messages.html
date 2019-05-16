@@ -1,8 +1,8 @@
 <!-- Generated template for the PopMessagesComponent component -->
 <ion-list >
   <ion-item *ngFor="let message of messages">
-    <p>{{message?.from}} ha pujado por</p>
-    <p>{{message?.nombre}}</p>
-    <p>Y ahora cuesta {{message?.precio}} €</p>
+    <p>{{message?.from}} ha pujado por {{message?.nombre}}</p>
+    <p>Nuevo precio: {{message?.precio}} €</p>
+    <p>Hace {{message?.tiempo}}</p>
   </ion-item>
 </ion-list>

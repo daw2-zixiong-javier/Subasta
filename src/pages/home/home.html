@@ -3,7 +3,7 @@
     <nav-bar></nav-bar>
   </ion-navbar>
 </ion-header>
-    <!--    <button ion-button><ion-icon name="log-out" (click)="logout()"></ion-icon></button>-->
+<!--    <button ion-button><ion-icon name="log-out" (click)="logout()"></ion-icon></button>-->
 <ion-content padding>
 
   <ion-slides pager autoplay="2000" loop="true">
@@ -21,31 +21,26 @@
     </ion-slide>
 
   </ion-slides>
-
+  <br>
   <ion-list>
     <ion-row>
-      
-        <div *ngFor="let item of products" class="product">
 
-          <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="">
-          <ion-card text-center>
-            <ion-label>
-              {{item?.name}}
-            </ion-label>
-            <ion-label>
-              {{item?.description}}
-            </ion-label>
-            <timer #timer timeInSeconds={{item.time_live}} id={{item.key}} timeDisplay={{item.time_display}}></timer>
-            <button ion-button (click)="goProduct(item)">
-                Pujar
-            </button>
-          </ion-card>
- 
+      <div *ngFor="let item of products" class="product">
+
+        <img src='{{item?.url_image}}' alt="">
+
+        <h5 align="center">
+          {{item?.name}}
+        </h5>
+        <ion-label>
+          {{item?.description}}
+        </ion-label>
+        <timer #timer timeInSeconds={{item.time_live}} id={{item.key}} timeDisplay={{item.time_display}}></timer>
+        <div id="botonPuja">
+          <button ion-button (click)="goProduct(item)">Pujar</button>
         </div>
+      </div>
     </ion-row>
-    
   </ion-list>
-
-
 </ion-content>
 

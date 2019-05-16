@@ -51,7 +51,8 @@ export class DbService{
             key: c.payload.key,
             from:c.payload.val()['from'],
             nombre:c.payload.val()['nombre'],
-            precio:c.payload.val()['precio'],            
+            precio:c.payload.val()['precio'],
+            tiempo:c.payload.val()['time'],
           }}
         ))
       )
